@@ -6,7 +6,7 @@ const fs = require('fs');
 puppeteer.use(StealthPlugin());
 
 const TELEGRAM_BOT_TOKEN = '7873936483:AAFkEOQQt-dQsYYAJo_y4YdVAYTz0ipfsc0';
-const CHAT_ID = '5531115917'; // Replace with your Telegram user ID
+const CHAT_ID = 'traffic_bott'; // Replace with your Telegram user ID
 const BOT_API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const CHECK_INTERVAL = 10000;
 
