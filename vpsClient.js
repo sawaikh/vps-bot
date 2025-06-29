@@ -6,9 +6,10 @@ const fs = require('fs');
 puppeteer.use(StealthPlugin());
 
 const TELEGRAM_BOT_TOKEN = '7873936483:AAFkEOQQt-dQsYYAJo_y4YdVAYTz0ipfsc0';
-const CHAT_ID = 'traffic_bott'; // Replace with your Telegram user ID
+const CHAT_ID = '5531115917'; // Replace with your Telegram user ID
 const BOT_API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const CHECK_INTERVAL = 10000;
+const VPS_ID = `vps-${Math.floor(Math.random() * 100000)}`;
 
 async function sendStatus(msg) {
   await fetch(`${BOT_API}/sendMessage`, {
@@ -45,9 +46,9 @@ async function runTask(task) {
     }
 
     await new Promise(res => setTimeout(res, task.duration * 1000));
-    await sendStatus(`✅ Task success: ${task.url}`);
+    await sendStatus(`✅ ${VPS_ID}: Task success for ${task.url}`);
   } catch (err) {
-    await sendStatus(`❌ Task failed: ${err.message}`);
+    await sendStatus(`❌ ${VPS_ID}: Task failed for ${task.url} – ${err.message}`);
   } finally {
     await browser.close();
   }
